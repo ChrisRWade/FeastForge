@@ -23,7 +23,7 @@ const sequelize = new Sequelize(
       acquire: 30000,
       idle: 10000,
     },
-    logging: console.log,
+    logging: false, // console.log for each query
   }
 );
 
@@ -48,6 +48,15 @@ Object.keys(db).forEach((modelName) => {
     db[modelName].associate(db);
   }
 });
+
+sequelize
+  .sync({force: false}) // Set to true to drop tables first and re-create them
+  .then(() => {
+    console.log("Database synchronized");
+  })
+  .catch((error) => {
+    console.error("Failed to synchronize database:", error);
+  });
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
