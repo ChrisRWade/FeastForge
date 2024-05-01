@@ -6,7 +6,7 @@ const Sequelize = require("sequelize");
 const basename = path.basename(__filename);
 let db = {};
 
-require("dotenv").config({path: path.resolve(__dirname, "../.env")});
+require("dotenv").config({path: path.resolve(__dirname, "../../.env")});
 
 // Create a Sequelize instance based on environment variables
 const sequelize = new Sequelize(
