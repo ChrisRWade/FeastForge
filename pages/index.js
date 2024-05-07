@@ -1,10 +1,15 @@
-function HomePage() {
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Home from "../components/Home";
+
+function Index() {
   return (
     <div>
-      <h1>Welcome to My Next.js App!</h1>
-      <p>This is the home page.</p>
+      <Header />
+      <Home />
+      <Footer />
     </div>
   );
 }
 
-export default HomePage;
+export default Index;
