@@ -1,12 +1,13 @@
 .hero {
     background-image: url('/images/hero.webp');
     background-size: cover;
+    /* or 'contain' based on your preference */
+    background-position: center center;
     position: relative;
-    height: 600px;
-    /* Adjust based on your design */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    height: auto;
+    /* Adjust height automatically based on width */
+    aspect-ratio: 1653 / 557;
 }
 
 .overlay {
@@ -24,12 +25,6 @@
     /* Ensures the logo scales correctly */
     z-index: 2;
     /* Ensure the logo is above the background */
-    
-}
-
-.fallback {
-    background-image: url('/images/hero.jpeg');
-    /* Fallback if webp is not supported */
 }
 
 .menuLinks {
@@ -47,9 +42,29 @@
 }
 
 .logo {
+    position: absolute;
+    top: 3vh;
+    left: 3vw;
     background-color: rgba(237, 233, 233, 0.5);
-    padding: 10px;
+    padding: 5px;
     border-radius: 30px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    
+}
+
+.logo img {
+    width: clamp(75px, 16vw, 200px);
+    /* Adjust clamp values based on your design needs */
+}
+
+@media (max-width: 768px) {
+    .hero {
+    background-image: url('/images/heroMobile.webp');
+    aspect-ratio: 752 / 500;
+    }
+
+    .logo {
+        border-radius: 20px;
+        top: 2vh;
+        left: 2vw;
+    }
 }
