@@ -46,14 +46,52 @@
     top: 3vh;
     left: 3vw;
     background-color: rgba(237, 233, 233, 0.5);
+    box-shadow: 0 4px 8px rgba(255, 165, 0, 0.6);
     padding: 5px;
     border-radius: 30px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .logo img {
     width: clamp(75px, 16vw, 200px);
     /* Adjust clamp values based on your design needs */
+}
+
+.ctaBox {
+    background-color: rgba(237, 233, 233, 0.5);
+    color: #272626;
+    padding: 15px 25px;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(255, 165, 0, 0.6);
+    position: absolute;
+    width: clamp(10px, 30vw, 200px);
+    bottom: 50px;
+    right: 35px;
+    font-size: clamp(14px, 2vw, 18px);
+    }
+
+.flexCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.orderButton {
+    background-color: #FFA500;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s, transform 0.3s;
+        font-size: clamp(12px, 1.5vw, 18px);
+            /* Smaller on smaller screens, larger on larger screens */
+            padding: clamp(8px, 2vw, 20px) clamp(16px, 4vw, 40px);
+            /* Dynamic padding based on viewport width */
+}
+
+.orderButton:hover {
+    background-color: #CC8400;
+    transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
