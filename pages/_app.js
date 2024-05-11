@@ -1,4 +1,6 @@
-import "../styles/globals.css"; // Ensure you have a styles directory with a globals.css file
+import React, {useEffect, useState} from "react";
+
+import "../styles/globals.css";
 import {wrapper} from "../redux/store";
 
 function MyApp({Component, pageProps}) {
