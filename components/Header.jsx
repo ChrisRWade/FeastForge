@@ -27,7 +27,7 @@ function Header() {
         <div className={styles.hero}>
           <div className={styles.overlay}></div>
 
-          <div className={`${styles.ctaBox} fade-import 'module';`}>
+          <div className={`${styles.ctaBox} fade-in`}>
             <picture className={styles.logo}>
               <source srcSet="/images/logowhite.webp" type="image/webp" />
               <img

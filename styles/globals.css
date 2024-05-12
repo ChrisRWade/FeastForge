@@ -26,6 +26,22 @@ h6 {
     font-family: 'Arvo', Arial, sans-serif;
 }
 
+.pr7 {
+    margin-right: 7px;
+}
+
+.pr5 {
+    margin-right: 5px;
+}
+
+.pr3 {
+    margin-right: 3px;
+}
+
+.pr1 {
+    margin-right: 1px;
+}
+
 .orange-glow {
     filter: drop-shadow(0 0 8px rgba(255, 165, 0, 0.2)) drop-shadow(0 0 12px rgba(255, 165, 0, 0.3));
 }
@@ -40,6 +56,31 @@ h6 {
 
 .roll-down {
         animation: rollDown 0.75s ease-out forwards;
+}
+
+.roll-down-fast {
+    animation: rollDown 0.25s ease-out forwards;
+}
+
+.roll-up {
+    animation: rollUp 0.75s ease-out forwards;
+}
+
+.roll-up-fast {
+    animation: rollUp 0.25s ease-out forwards;
+    }
+
+.draw-line {
+    animation: drawLine 0.75s ease-out forwards;
+}
+
+    @keyframes drawLine {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
 }
 
 @keyframes fadeIn {
@@ -59,5 +100,15 @@ h6 {
 
     to {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+@keyframes rollUp {
+    from {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     }
 }
