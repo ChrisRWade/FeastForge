@@ -9,6 +9,8 @@
     width: 100%;
     height: auto;
     aspect-ratio: 1653 / 557;
+    top: -71px;
+    margin-bottom: -71px;
 }
 
 .overlay {
@@ -47,15 +49,17 @@
 .ctaBox {
     display: flex;
     justify-content: space-around;
-    background-color: rgba(237, 233, 233, 0.5);
-    color: #272626;
+    background-color: rgba(18, 18, 18, 0.8);
+    color: #ffffff;
+    font-weight: bold;
     padding: 15px 25px;
     border-radius: 8px; 
     box-shadow: 0 4px 8px rgba(255, 165, 0, 0.6);
     position: absolute;
-    width: clamp(10px, 30vw, 400px);
+    width: clamp(180px, 30vw, 400px);
     font-size: clamp(8px, 1.5vw, 18px);
     }
+
 
 .flexCenter {
     display: flex;
@@ -71,8 +75,8 @@
     border-radius: 5px;
     border: none;
     transition: background-color 0.3s, transform 0.3s;
-        font-size: clamp(12px, 1.5vw, 18px);
-            padding: clamp(8px, 2vw, 20px) clamp(16px, 4vw, 40px);
+    font-size: clamp(12px, 1.5vw, 18px);
+    padding: clamp(8px, 2vw, 20px) clamp(16px, 4vw, 40px);
 }
 
 .orderButton:hover {
@@ -84,15 +88,32 @@
     font-size: clamp(10px, 1.5vw, 18px);
 }
 
+
+@media (max-width: 1168px) {
+    .ctaBox {
+        top: 125px;
+    }
+}
+
 @media (max-width: 768px) {
     .hero {
     background-image: url('/images/heroMobile.webp');
     aspect-ratio: 752 / 500;
+    top: -32px;
+    margin-bottom: -32px;
     }
 
     .logo {
         border-radius: 20px;
         top: 2vh;
         left: 2vw;
+    }
+    
+    .navLinks {
+        display: none;
+    }
+
+    .ctaBox {
+        top: 50%;
     }
 }

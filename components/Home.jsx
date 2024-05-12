@@ -1,8 +1,10 @@
+import styles from "../styles/Home.module.css";
+
 function Home() {
   return (
-    <div>
+    <div className={styles.content}>
       <h1>Welcome to My Next.js App!</h1>
-      <p>This is the home page.</p>
+      <p>Functional Electronic Application for Service and Transaction</p>
     </div>
   );
 }

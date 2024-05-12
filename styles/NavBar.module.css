@@ -1,0 +1,113 @@
+.navbar {
+    align-self: flex-start;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: rgba(18, 18, 18, 0.8);
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.burgerMenu {
+    margin-right: 10px;
+}
+
+
+.brand {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.navLinks {
+    display: flex;
+    list-style-type: none;
+}
+
+.navLink {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.navLink:hover {
+    color: #FFA500;
+}
+
+.orderBtn {
+    padding: 10px 20px;
+    background-color: #FFA500;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.orderBtn:hover {
+    background-color: #CC8400;
+    transform: scale(1.1);
+}
+
+.mobileMenu {
+    display: none;
+}
+
+@media (max-width: 768px) {
+        .orderBtn {
+            background: none;
+            padding: 0;
+        }
+
+        .orderBtn:hover {
+            background: none;   
+        }
+
+                .hide {
+                    display: none;
+                }
+        
+                .show {
+                    display: block;
+                    /* Make sure it's block to show the content */
+                    position: absolute;
+                    top: 30px;
+                    /* Adjust based on your navbar's actual height */
+                    left: 0;
+                    width: 100%;
+                    background-color: rgba(0, 0, 0, 0.9);
+                    /* Ensures contrast */
+                    color: white;
+                    /* Ensure text color contrasts with background */
+                    z-index: 100;
+                    /* High z-index to ensure it overlays other content */
+                    overflow: auto;
+                }
+        
+                .navLinks {
+                    list-style-type: none;
+                    padding: 0;
+                    margin: 0;
+                    width: 100%;
+                    /* Ensures the full width for the list */
+                }
+        
+                .navLink {
+                    padding: 10px;
+                    display: block;
+                    /* Ensures that each link is a block element */
+                    color: white;
+                    /* Ensures visibility */
+                    text-align: center;
+                    /* Centers the text */
+                    cursor: pointer;
+                }
+        
+                .navLink:hover {
+                    color: #FFA500;
+                    /* Change on hover for visibility */
+                }
+    }

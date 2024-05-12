@@ -25,3 +25,39 @@ h5,
 h6 {
     font-family: 'Arvo', Arial, sans-serif;
 }
+
+.orange-glow {
+    filter: drop-shadow(0 0 8px rgba(255, 165, 0, 0.2)) drop-shadow(0 0 12px rgba(255, 165, 0, 0.3));
+}
+
+.white-glow {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.05)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.1)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
+}
+
+.fade-in {
+    animation: fadeIn 0.75s ease-out forwards;
+}
+
+.roll-down {
+        animation: rollDown 0.75s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes rollDown {
+    from {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
