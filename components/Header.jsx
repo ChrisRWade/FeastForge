@@ -2,24 +2,7 @@ import React, {useState, useEffect} from "react";
 import styles from "../styles/Header-dark.module.css";
 import NavBar from "./NavBar";
 
-function Header() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
+const Header = ({isMobile}) => {
   return (
     <>
       <NavBar isMobile={isMobile} />
@@ -53,6 +36,6 @@ function Header() {
       </header>
     </>
   );
-}
+};
 
 export default Header;

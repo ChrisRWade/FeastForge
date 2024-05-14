@@ -1,9 +1,10 @@
 import styles from "../styles/Home.module.css";
+import AboutMe from "./AboutMe";
 
-function Home() {
+function Home({isMobile}) {
   return (
     <div className={styles.content}>
-      <h1>Welcome to My Next.js App!</h1>
+      <AboutMe isMobile={isMobile} />
       <p>Functional Electronic Application for Service and Transaction</p>
     </div>
   );
