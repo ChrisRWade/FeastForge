@@ -1,20 +1,23 @@
-import React, {useEffect, useRef} from "react";
+import React, {useEffect, useState, useRef} from "react";
 import styles from "../styles/AboutMe.module.css";
 
 const AboutMe = ({isMobile}) => {
   const boxRef = useRef(null);
+  const [blurbInView, setBlurbInView] = React.useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       if (boxRef.current) {
         const rect = boxRef.current.getBoundingClientRect();
         if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-          boxRef.current.classList.add(styles.animateIn);
+          setBlurbInView(true);
         } else {
-          boxRef.current.classList.remove(styles.animateIn);
+          setBlurbInView(false);
         }
       }
     };
+
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -26,7 +29,7 @@ const AboutMe = ({isMobile}) => {
     <section className={styles.aboutMeSection}>
       <div className={styles.imageContainer}>
         {isMobile && (
-          <div className={styles.ctaBox} ref={boxRef}>
+          <div className={`${styles.ctaBox} slide-in-left`} ref={boxRef}>
             <h2>What is FEASTFORGE?</h2>
             <p>
               FEASTFORGE is a cutting-edge web and mobile platform built with
@@ -44,7 +47,12 @@ const AboutMe = ({isMobile}) => {
       </div>
       {!isMobile && (
         <div className={styles.complementaryDiv}>
-          <div className={styles.ctaBox} ref={boxRef}>
+          <div
+            className={`${styles.ctaBox} ${
+              blurbInView ? "slide-in-right" : ""
+            }`}
+            ref={boxRef}
+          >
             <h2>What is FEASTFORGE?</h2>
             <p>
               FEASTFORGE is a cutting-edge web and mobile platform built with

@@ -58,6 +58,7 @@
     position: absolute;
     width: clamp(180px, 30vw, 400px);
     font-size: clamp(8px, 1.5vw, 18px);
+    transition: top 0.5s ease-in-out;
     }
 
 

@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swapp');
 @import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+html {
+    background: linear-gradient(135deg, rgba(255, 165, 0, 0.2), rgba(255, 165, 0, 0.3), rgba(255, 165, 0, 0.6));
+    height: 100%;
+}
+
 body {
     margin: 0!important;
     padding: 0!important;
@@ -111,4 +116,36 @@ h6 {
     to {
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(-50%);
+        opacity: 1;
+    }
+}
+
+.slide-in-left {
+    animation: slideInFromLeft 0.75s ease-out forwards;
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+.slide-in-right {
+    animation: slideInFromRight 0.75s ease-out forwards;
 }
