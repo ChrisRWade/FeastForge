@@ -28,6 +28,17 @@ const AboutMe = ({isMobile}) => {
   return (
     <section className={styles.aboutMeSection}>
       <div className={styles.imageContainer}>
+        {!isMobile && (
+          <div className={styles.featuresOverlay}>
+            <h2>Why Choose FEASTFORGE?</h2>
+            <ul>
+              <li>Seamless Mobile and Web Ordering</li>
+              <li>High-Performance Application</li>
+              <li>Cost-Effective Solutions</li>
+              <li>Customizable to Your Needs</li>
+            </ul>
+          </div>
+        )}
         {isMobile && (
           <div className={`${styles.ctaBox} slide-in-left`} ref={boxRef}>
             <h2>What is FEASTFORGE?</h2>
