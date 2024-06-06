@@ -1,0 +1,28 @@
+.flipCardGrid {
+    display: grid;
+    gap: 20px;
+    /* Grid gap for spacing between cards */
+grid-template-columns: repeat(auto-fit, minmax(clamp(250px, 25%, 4fr), 1fr));    /* Start with four columns by default */
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 1024px) {
+    .flipCardGrid {
+        grid-template-columns: repeat(2, 1fr);
+        /* Switch to two columns for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .flipCardGrid {
+        grid-template-columns: repeat(2, 1fr);
+        /* Maintain two columns for smaller tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .flipCardGrid {
+        grid-template-columns: 1fr;
+        /* One column for mobile devices */
+    }
+}

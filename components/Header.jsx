@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from "react";
 import styles from "../styles/Header-dark.module.css";
-import NavBar from "./NavBar";
+// import NavBar from "./NavBar";
 
 const Header = ({isMobile}) => {
   return (
     <>
-      <NavBar isMobile={isMobile} />
+      {/* <NavBar isMobile={isMobile} /> */}
       <header>
         <div className={styles.hero}>
           <div className={styles.overlay}></div>
