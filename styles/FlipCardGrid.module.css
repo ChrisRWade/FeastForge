@@ -2,8 +2,7 @@
     display: grid;
     gap: 20px;
     /* Grid gap for spacing between cards */
-grid-template-columns: repeat(auto-fit, minmax(clamp(250px, 25%, 4fr), 1fr));    /* Start with four columns by default */
-}
+        grid-template-columns: repeat(4, 1fr);}
 
 /* Adjustments for smaller screens */
 @media (max-width: 1024px) {

@@ -5,28 +5,32 @@ import styles from "../styles/FlipCardGrid.module.css";
 const FlipCardGrid = () => {
   const cards = [
     {
-      image: "/path/to/image1.jpg",
-      title: "Card 1",
-      description: "Short Info 1",
-      detailedInfo: "Detailed Info 1",
+      image: "/images/Appetizers.webp",
+      title: "Appetizers",
+      description: "Begin your Feast",
+      detailedInfo:
+        "Embark on your culinary adventure with our selection of appetizers, each carefully crafted to awaken your palate. From artisan cheeses to hand-cured meats, start your meal with the true taste of tradition.",
     },
     {
-      image: "/path/to/image2.jpg",
-      title: "Card 2",
-      description: "Short Info 2",
-      detailedInfo: "Detailed Info 2",
+      image: "/images/Entrees.webp",
+      title: "Entrees",
+      description: "Hearty and Healthy",
+      detailedInfo:
+        "Savor the heart of our kitchen with entrees steeped in medieval heritage. Each dish is a tribute to the rich, robust flavors that once graced the tables of kings and knights.",
     },
     {
-      image: "/path/to/image3.jpg",
-      title: "Card 3",
-      description: "Short Info 3",
-      detailedInfo: "Detailed Info 3",
+      image: "/images/Deserts.webp",
+      title: "Deserts",
+      description: "Sweet Endings",
+      detailedInfo:
+        "Conclude your feast on a sweet note with our desserts, inspired by age-old recipes. Our desserts are not just treats; they're a journey through time, crafted to delight and surprise.",
     },
     {
-      image: "/path/to/image4.jpg",
-      title: "Card 4",
-      description: "Short Info 4",
-      detailedInfo: "Detailed Info 4",
+      image: "/images/Beverages.webp",
+      title: "Beverages",
+      description: "Brews and Potions",
+      detailedInfo:
+        "From frothy ales to fine wines, our beverage selection is a toast to the taverns of old. Each drink complements your meal, enhancing the rich flavors and bold adventures on your plate.",
     },
   ];
 

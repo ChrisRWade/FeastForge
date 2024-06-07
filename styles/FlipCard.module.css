@@ -1,7 +1,8 @@
 .flipCard {
     perspective: 1000px;
     /* Low value results in more dramatic perspective effect */
-    width: 50%;
+    min-width: 240px;
+    /*min width clamp below please */
     /* Adjust based on layout requirements */
     height: 300px;
     /* Fixed height for simplicity */
@@ -9,6 +10,8 @@
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    transition: min-width 0.5s ease;
+        /* Transition for smooth resizing */
 }
 
 .flipCardInner {
@@ -35,10 +38,10 @@
 }
 
 .flipCardFront {
-    background-color: #fff;
-    color: black;
+    color: white;
     z-index: 2;
     /* Ensures the front face is above the back face initially */
+    background-size: cover;
 }
 
 .flipCardBack {
@@ -59,3 +62,21 @@
 .cardDetailedInfo {
     padding: 10px;
 }
+
+@media (max-width: 1024px) {
+    .flipCard {
+        min-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .flipCard {
+            min-width: 260px;
+        }
+    }
+
+        @media (max-width: 568px) {
+    .flipCard {
+            min-width: 225px;
+        }
+    }
