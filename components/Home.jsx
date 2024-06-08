@@ -9,7 +9,6 @@ function Home({isMobile}) {
       <Header isMobile={isMobile} />
       <AboutMe isMobile={isMobile} />
       <FlipCardGrid />
-      <p>Functional Electronic Application for Service and Transaction</p>
     </div>
   );
 }

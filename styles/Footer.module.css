@@ -1,0 +1,58 @@
+.footer {
+    background-image: url('/images/footer.svg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: white;
+}
+
+.footerContent {
+    display: flex;
+    width: 80%;
+    /* Adjust width as necessary to fit content */
+    justify-content: space-between;
+    /* Distributes space evenly between columns */
+    text-align: center;
+    height: 60%;
+}
+
+.footerColumn {
+    flex: 1;
+    /* Each column takes equal space */
+    padding: 0 20px;
+    /* Adds padding on the sides of each column */
+    align-self: center;
+}
+
+.footerColumnMap {
+        flex: 1;
+
+        padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        height: 800px;
+    }
+
+    .footerContent {
+        flex-direction: column;
+        /* Stack columns vertically on smaller screens */
+        align-items: center;
+    }
+
+    .footerColumn {
+        padding: 10px 0;
+        /* Adjust padding for stacked layout */
+    }
+
+    .footerColumnMap {
+        padding: 10px 0;
+        width: 100%;
+        min-height: 300px;
+    }
+}
