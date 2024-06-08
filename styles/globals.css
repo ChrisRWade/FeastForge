@@ -70,6 +70,19 @@ h6 {
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.05)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.1)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
 }
 
+.maroon-glow {
+    filter: drop-shadow(0 0 5px rgba(46, 18, 6, 0.5)) drop-shadow(0 0 10px rgba(46, 18, 6, 0.7)) drop-shadow(0 0 15px rgba(46, 18, 6, 0.9));
+
+}
+.overlay-black {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 .fade-in {
     animation: fadeIn 0.75s ease-out forwards;
 }

@@ -1,29 +1,39 @@
 import React, {useEffect, useState, useRef} from "react";
 import styles from "../styles/AboutMe.module.css";
+import {debounce} from "lodash";
 
 const AboutMe = ({isMobile}) => {
   const boxRef = useRef(null);
   const [blurbInView, setBlurbInView] = React.useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const observer = new IntersectionObserver(
+      debounce((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setBlurbInView(true);
+          } else {
+            setBlurbInView(false);
+          }
+        });
+      }, 100), // Debounce with a 100ms delay
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      }
+    );
+
+    if (boxRef.current) {
+      observer.observe(boxRef.current);
+    }
+
+    return () => {
       if (boxRef.current) {
-        const rect = boxRef.current.getBoundingClientRect();
-        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-          setBlurbInView(true);
-        } else {
-          setBlurbInView(false);
-        }
+        observer.unobserve(boxRef.current);
       }
     };
-
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  }, [isMobile]);
 
   return (
     <section className={styles.aboutMeSection}>

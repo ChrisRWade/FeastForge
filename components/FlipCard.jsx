@@ -6,15 +6,17 @@ const FlipCard = ({image, title, description, detailedInfo}) => {
     <div className={styles.flipCard}>
       <div className={styles.flipCardInner}>
         <div
-          className={styles.flipCardFront}
+          className={`${styles.flipCardFront} overlay-black maroon-glow`}
           style={{backgroundImage: `url(${image})`}}
         >
           <div className={styles.cardContent}>
-            <h3 className={styles.cardTitle}>{title}</h3>
-            <p className={styles.cardDescription}>{description}</p>
+            <h3 className={`${styles.cardTitle} orange-glow`}>{title}</h3>
+            <p className={`${styles.cardDescription} orange-flow`}>
+              {description}
+            </p>
           </div>
         </div>
-        <div className={styles.flipCardBack}>
+        <div className={`${styles.flipCardBack} maroon-glow`}>
           <p className={styles.cardDetailedInfo}>{detailedInfo}</p>
         </div>
       </div>
