@@ -4,8 +4,10 @@ const {sequelize} = require("./database"); // Adjust path as necessary
 const path = require("path");
 const morgan = require("morgan");
 const cors = require("cors");
+const passport = require("passport");
 
 require("dotenv").config({path: path.resolve(__dirname, "../.env")});
+require("./passport-config")(passport);
 
 const dev = process.env.NODE_ENV !== "production";
 const nextApp = next({dev});
@@ -18,6 +20,9 @@ nextApp.prepare().then(() => {
   app.use(cors());
 
   app.use(express.json());
+
+  app.use(passport.initialize());
+  app.use(passport.session());
 
   // Define your API routes here, for example:
   // app.use('/api', apiRoutes);
