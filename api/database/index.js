@@ -23,7 +23,7 @@ const sequelize = new Sequelize(
       acquire: 30000,
       idle: 10000,
     },
-    logging: false, // console.log for each query
+    logging: console.log, // console.log for each query
   }
 );
 

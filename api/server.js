@@ -4,7 +4,10 @@ const {sequelize} = require("./database"); // Adjust path as necessary
 const path = require("path");
 const morgan = require("morgan");
 const cors = require("cors");
+const session = require("express-session");
 const passport = require("passport");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const userRouter = require("./routes/userRouter");
 
 require("dotenv").config({path: path.resolve(__dirname, "../.env")});
 require("./passport-config")(passport);
@@ -21,15 +24,39 @@ nextApp.prepare().then(() => {
 
   app.use(express.json());
 
+  // Configure the session store
+  const sessionStore = new SequelizeStore({
+    db: sequelize,
+  });
+
+  app.use(
+    session({
+      secret: process.env.SESSION_SECRET,
+      store: sessionStore,
+      resave: false, // 'false' is typically recommended
+      saveUninitialized: false, // 'false' for GDPR compliance
+      cookie: {
+        // Set cookie options here
+        secure: "auto", // recommended to use 'auto'
+        maxAge: 30 * 24 * 60 * 60 * 1000, // 1 month in milliseconds
+      },
+    })
+  );
+
   app.use(passport.initialize());
   app.use(passport.session());
 
-  // Define your API routes here, for example:
-  // app.use('/api', apiRoutes);
+  // Use the userRouter for all user-related API routes
+  app.use("/api", userRouter);
 
   // Serve all Next.js pages
   app.get("*", (req, res) => {
     return handle(req, res);
+  });
+
+  app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send("Something broke!");
   });
 
   // Test the DB Connection
