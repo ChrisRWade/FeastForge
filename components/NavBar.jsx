@@ -5,14 +5,28 @@ import {
   faHome,
   faInfoCircle,
   faUtensils,
+  faSignIn,
+  faSignOut,
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "../styles/NavBar.module.css";
+import {useUser} from "../context/UserContext";
 
 const NavBar = ({isMobile}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false); // State to handle closing the menu [1
   const navbarRef = useRef(null); // Reference to the navbar
   const menuRef = useRef(null); // Reference to the menu
+  const {user, login, logout} = useUser();
+
+  const handleLogin = () => {
+    // These credentials could be obtained from a form
+    login("username(email)", "password");
+    console.log("Login clicked");
+  };
+
+  const handleLogout = () => {
+    logout();
+  };
 
   useEffect(() => {
     if (!isMobile) {
@@ -92,6 +106,12 @@ const NavBar = ({isMobile}) => {
             >
               Menu
             </li>
+            <li
+              className={`${styles.navLink} ${styles.loginBtn}`}
+              onClick={() => (user ? handleLogout() : handleLogin())}
+            >
+              {user ? "Logout" : "Login"}
+            </li>
           </ul>
         )}
         <button
@@ -114,6 +134,16 @@ const NavBar = ({isMobile}) => {
           }}
         >
           <ul className={`${styles.navLinks} orange-glow`}>
+            <li
+              className={`${styles.navLink} ${styles.loginBtn}`}
+              onClick={() => (user ? handleLogout() : handleLogin())}
+            >
+              <FontAwesomeIcon
+                icon={user ? faSignIn : faSignOut}
+                className="pr7"
+              />
+              {user ? "Logout" : "Login"}
+            </li>
             <li
               className={styles.navLink}
               onClick={() => console.log("Home clicked")}
