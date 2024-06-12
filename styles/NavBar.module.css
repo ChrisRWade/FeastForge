@@ -56,57 +56,61 @@
     display: none;
 }
 
+.loginBtn {
+    margin-left: 100px;
+}
+
 @media (max-width: 768px) {
-        .orderBtn {
-            background: none;
-            padding: 0;
-        }
-
-        .orderBtn:hover {
-            background: none;   
-        }
-
-        .hide {
-            display: none;
-        }
-        
-        .show {
-            display: flex;
-            position: fixed;
-            flex-direction: column;
-            left: 0;
-            width: 35%;
-            background-color: rgba(18, 18, 18, 0.8);
-            color: white;
-            z-index: 1100;
-            overflow: visible;
-        }
-
-        .line {
-            width: 30%;
-            height: 1px;
-            background-color: white;
-        }
-        
-        .navLinks {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            width: 35vw;
-            }
-        
-        .navLink {
-            padding: 10px;
-            display: block;
-            color: white;
-            text-align: center;
-            cursor: pointer;
-        }
-        
-        .navLink:hover {
-            color: #FFA500;
-        }
+    .orderBtn {
+        background: none;
+        padding: 0;
     }
+
+    .orderBtn:hover {
+        background: none;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .show {
+        display: flex;
+        position: fixed;
+        flex-direction: column;
+        left: 0;
+        width: 35%;
+        background-color: rgba(18, 18, 18, 0.8);
+        color: white;
+        z-index: 1100;
+        overflow: visible;
+    }
+
+    .line {
+        width: 30%;
+        height: 1px;
+        background-color: white;
+    }
+
+    .navLinks {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: 35vw;
+    }
+
+    .navLink {
+        padding: 10px;
+        display: block;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .navLink:hover {
+        color: #FFA500;
+    }
+}

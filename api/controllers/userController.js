@@ -47,8 +47,13 @@ exports.loginUser = (req, res, next) => {
 
 // Logout handler
 exports.logoutUser = (req, res) => {
-  req.logout();
-  res.send("Logged out successfully");
+  req.logout(function (err) {
+    if (err) {
+      console.error("Logout failed:", err);
+      return res.status(500).send("Logout failed");
+    }
+    res.send("Logged out successfully");
+  });
 };
 
 // Update user account
