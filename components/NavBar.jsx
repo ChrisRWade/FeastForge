@@ -11,7 +11,7 @@ import {
 import styles from "../styles/NavBar.module.css";
 import {useUser} from "../context/UserContext";
 
-const NavBar = ({isMobile}) => {
+const NavBar = ({isMobile, loginModalOpen, setLoginModalOpen}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false); // State to handle closing the menu [1
   const navbarRef = useRef(null); // Reference to the navbar
@@ -108,7 +108,9 @@ const NavBar = ({isMobile}) => {
             </li>
             <li
               className={`${styles.navLink} ${styles.loginBtn}`}
-              onClick={() => (user ? handleLogout() : handleLogin())}
+              onClick={() =>
+                user ? handleLogout() : setLoginModalOpen(!loginModalOpen)
+              }
             >
               {user ? "Logout" : "Login"}
             </li>
@@ -136,7 +138,9 @@ const NavBar = ({isMobile}) => {
           <ul className={`${styles.navLinks} orange-glow`}>
             <li
               className={`${styles.navLink} ${styles.loginBtn}`}
-              onClick={() => (user ? handleLogout() : handleLogin())}
+              onClick={() =>
+                user ? handleLogout() : setLoginModalOpen(!loginModalOpen)
+              }
             >
               <FontAwesomeIcon
                 icon={user ? faSignIn : faSignOut}

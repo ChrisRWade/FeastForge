@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Home from "../components/Home";
 import NavBar from "../components/NavBar";
+import LoginModal from "../components/LoginModal";
 
 function Index() {
   const [isMobile, setIsMobile] = useState(false);
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -26,10 +27,17 @@ function Index() {
 
   return (
     <div>
-      <NavBar isMobile={isMobile} />
-      {/* <Header isMobile={isMobile} /> */}
+      <NavBar
+        isMobile={isMobile}
+        loginModalOpen={loginModalOpen}
+        setLoginModalOpen={setLoginModalOpen}
+      />
       <Home isMobile={isMobile} />
       <Footer isMobile={isMobile} />
+      <LoginModal
+        loginModalOpen={loginModalOpen}
+        setLoginModalOpen={setLoginModalOpen}
+      />
     </div>
   );
 }
