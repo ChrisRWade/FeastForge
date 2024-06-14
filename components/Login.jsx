@@ -2,6 +2,8 @@
 import React, {useState} from "react";
 import {useUser} from "../context/UserContext"; // Adjust the path according to your structure
 import styles from "../styles/Login.module.css"; // Assuming CSS module usage
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faEnvelope, faLock} from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
   const {login} = useUser();
@@ -12,7 +14,6 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     login(email, password);
-    console.log("Login clicked");
   };
 
   return (
@@ -20,23 +21,33 @@ const Login = () => {
       <h2>Sign In</h2>
       <div className={styles.inputGroup}>
         <label htmlFor="email">Your Email</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+        <div className={styles.inputWithIcon}>
+          <div className={styles.iconContainer}>
+            <FontAwesomeIcon icon={faEnvelope} className={styles.inputIcon} />
+          </div>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
       </div>
       <div className={styles.inputGroup}>
         <label htmlFor="password">Your Password</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <div className={styles.inputWithIcon}>
+          <div className={styles.iconContainer}>
+            <FontAwesomeIcon icon={faLock} className={styles.inputIcon} />
+          </div>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
       </div>
       <div className={styles.options}>
         <label>

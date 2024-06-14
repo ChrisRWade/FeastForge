@@ -16,13 +16,13 @@ const NavBar = ({isMobile, loginModalOpen, setLoginModalOpen}) => {
   const [isClosing, setIsClosing] = useState(false); // State to handle closing the menu [1
   const navbarRef = useRef(null); // Reference to the navbar
   const menuRef = useRef(null); // Reference to the menu
-  const {user, login, logout} = useUser();
+  const {user, logout} = useUser();
 
-  const handleLogin = () => {
-    // These credentials could be obtained from a form
-    login("username(email)", "password");
-    console.log("Login clicked");
-  };
+  // const handleLogin = () => {
+  //   // These credentials could be obtained from a form
+  //   login("username(email)", "password");
+  //   console.log("Login clicked");
+  // };
 
   const handleLogout = () => {
     logout();
