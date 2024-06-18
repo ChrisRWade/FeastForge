@@ -1,7 +1,7 @@
 // components/Login.js
 import React, {useState} from "react";
-import {useUser} from "../context/UserContext"; // Adjust the path according to your structure
-import styles from "../styles/Login.module.css"; // Assuming CSS module usage
+import {useUser} from "../context/UserContext";
+import styles from "../styles/Login.module.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEnvelope, faLock} from "@fortawesome/free-solid-svg-icons";
 

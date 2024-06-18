@@ -83,4 +83,12 @@ exports.updateUser = async (req, res) => {
   }
 };
 
+exports.getSession = async (req, res) => {
+  if (req.user) {
+    res.send(getUserData(req.user));
+  } else {
+    res.status(401).send("No active session");
+  }
+};
+
 // Include other handlers as necessary, e.g., password reset, email verification, etc.

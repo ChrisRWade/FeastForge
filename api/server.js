@@ -6,6 +6,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 const session = require("express-session");
 const passport = require("passport");
+const Sequelize = require("sequelize");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const userRouter = require("./routes/userRouter");
 
@@ -37,6 +38,7 @@ nextApp.prepare().then(() => {
       saveUninitialized: false, // 'false' for GDPR compliance
       cookie: {
         // Set cookie options here
+
         secure: "auto", // recommended to use 'auto'
         maxAge: 30 * 24 * 60 * 60 * 1000, // 1 month in milliseconds
       },
@@ -46,8 +48,18 @@ nextApp.prepare().then(() => {
   app.use(passport.initialize());
   app.use(passport.session());
 
+  app.use((req, res, next) => {
+    if (req.session) {
+      //      console.log("Session ID:", req.sessionID); // Log the session ID
+      //     console.log("Session Data:", req.session); // Optionally log all session data
+    } else {
+      console.log("No session initialized");
+    }
+    next();
+  });
+
   // Use the userRouter for all user-related API routes
-  app.use("/api", userRouter);
+  app.use("/api/users", userRouter);
 
   // Serve all Next.js pages
   app.get("*", (req, res) => {

@@ -3,7 +3,7 @@ const userController = require("../controllers/userController");
 const router = express.Router();
 
 // Route to handle user creation
-router.post("/users", userController.createUser);
+router.post("/create", userController.createUser);
 
 // Route to handle user login
 router.post("/login", userController.loginUser);
@@ -12,6 +12,8 @@ router.post("/login", userController.loginUser);
 router.get("/logout", userController.logoutUser);
 
 // Route to handle updating user information
-router.put("/users/:userId", userController.updateUser);
+router.put("/:userId", userController.updateUser);
+
+router.get("/session", userController.getSession);
 
 module.exports = router;

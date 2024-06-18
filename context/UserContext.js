@@ -1,5 +1,5 @@
 // /context/UserContext.js
-import React, {createContext, useContext, useState} from "react";
+import React, {createContext, useContext, useEffect, useState} from "react";
 
 const UserContext = createContext();
 
@@ -10,9 +10,30 @@ export function useUser() {
 export const UserProvider = ({children}) => {
   const [user, setUser] = useState(null);
 
+  useEffect(() => {
+    console.log(user);
+    // Check the current user session on startup
+    fetch("/api/users/session", {
+      method: "GET",
+      credentials: "include", // Ensures cookies are included in the request
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.user) {
+          console.log("User session found:", data.user);
+          setUser(data.user); // Set the user state if session is still active
+        } else {
+          console.log("No user session found");
+        }
+      })
+      .catch((error) => {
+        console.error("Failed to retrieve user session:", error);
+      });
+  }, []);
+
   const login = (email, password) => {
     // API call to login the user
-    fetch("/api/login", {
+    fetch("/api/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +56,7 @@ export const UserProvider = ({children}) => {
 
   const logout = () => {
     // API call to logout the user
-    fetch("/api/logout")
+    fetch("/api/users/logout")
       .then(() => {
         setUser(null);
       })
