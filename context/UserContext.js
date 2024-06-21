@@ -19,9 +19,9 @@ export const UserProvider = ({children}) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data.user) {
-          console.log("User session found:", data.user);
-          setUser(data.user); // Set the user state if session is still active
+        if (data.id) {
+          console.log("User session found:", data);
+          setUser(data); // Set the user state if session is still active
         } else {
           console.log("No user session found");
         }

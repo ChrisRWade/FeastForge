@@ -83,6 +83,8 @@ nextApp.prepare().then(() => {
       console.error("Unable to connect to the database:", err);
     });
 
+  sessionStore.sync();
+
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

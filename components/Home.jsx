@@ -10,7 +10,7 @@ function Home({isMobile}) {
     <div className={styles.content}>
       <div style={{height: "100px"}}>
         {" "}
-        <p>Welcome, {user ? user.name : "Guest"}!</p>
+        <p>Welcome, {user ? user.firstName : "Guest"}!</p>
       </div>
       <Header isMobile={isMobile} />
       <AboutMe isMobile={isMobile} />

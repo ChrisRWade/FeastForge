@@ -84,10 +84,27 @@ exports.updateUser = async (req, res) => {
 };
 
 exports.getSession = async (req, res) => {
-  if (req.user) {
-    res.send(getUserData(req.user));
+  console.log("Session ID:", req.sessionID); // Log the session ID
+  console.log("Session Data:", req.session); // Log all session data
+
+  if (req.isAuthenticated()) {
+    // Checks if the request is from an authenticated session
+    try {
+      const user = await User.findByPk(req.user.id, {
+        attributes: {exclude: ["password"]}, // Exclude password for security
+      });
+      if (!user) {
+        console.log("User not found");
+        return res.status(404).json({message: "User not found"});
+      }
+      res.status(200).json(user.get({plain: true})); // Send back the user details, excluding the password
+      console.log("User session found:", user.get({plain: true}));
+    } catch (error) {
+      console.error("Error during session validation", error);
+      return res.status(500).json({message: "Error validating session"});
+    }
   } else {
-    res.status(401).send("No active session");
+    return res.status(401).json({message: "No active session"});
   }
 };
 
