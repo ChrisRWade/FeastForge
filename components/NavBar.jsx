@@ -13,16 +13,10 @@ import {useUser} from "../context/UserContext";
 
 const NavBar = ({isMobile, loginModalOpen, setLoginModalOpen}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isClosing, setIsClosing] = useState(false); // State to handle closing the menu [1
-  const navbarRef = useRef(null); // Reference to the navbar
-  const menuRef = useRef(null); // Reference to the menu
+  const [isClosing, setIsClosing] = useState(false);
+  const navbarRef = useRef(null);
+  const menuRef = useRef(null);
   const {user, logout} = useUser();
-
-  // const handleLogin = () => {
-  //   // These credentials could be obtained from a form
-  //   login("username(email)", "password");
-  //   console.log("Login clicked");
-  // };
 
   const handleLogout = () => {
     logout();
@@ -34,7 +28,6 @@ const NavBar = ({isMobile, loginModalOpen, setLoginModalOpen}) => {
     }
 
     const handleOutsideClick = (event) => {
-      // Check if the menu is open and the click is outside the menu
       if (
         menuRef.current &&
         !menuRef.current.contains(event.target) &&
@@ -48,17 +41,14 @@ const NavBar = ({isMobile, loginModalOpen, setLoginModalOpen}) => {
       }
     };
 
-    // Attach the listener
     document.addEventListener("mousedown", handleOutsideClick);
 
-    // Cleanup the listener
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, [isOpen, isMobile]); // Ensure this runs only if isOpen or isMobile changes
+  }, [isOpen, isMobile]);
 
   const toggleMenu = () => {
-    console.log("Menu toggled");
     if (isOpen) {
       setIsClosing(true);
       setTimeout(() => {
@@ -87,34 +77,36 @@ const NavBar = ({isMobile, loginModalOpen, setLoginModalOpen}) => {
           FEASTFORGE
         </div>
         {!isMobile && (
-          <ul className={`${styles.navLinks} orange-glow`}>
-            <li
-              className={styles.navLink}
-              onClick={() => console.log("Home clicked")}
-            >
-              Home
-            </li>
-            <li
-              className={styles.navLink}
-              onClick={() => console.log("About clicked")}
-            >
-              About
-            </li>
-            <li
-              className={styles.navLink}
-              onClick={() => console.log("Menu clicked")}
-            >
-              Menu
-            </li>
-            <li
-              className={`${styles.navLink} ${styles.loginBtn}`}
+          <>
+            <ul className={`${styles.navLinks} orange-glow`}>
+              <li
+                className={styles.navLink}
+                onClick={() => console.log("Home clicked")}
+              >
+                Home
+              </li>
+              <li
+                className={styles.navLink}
+                onClick={() => console.log("About clicked")}
+              >
+                About
+              </li>
+              <li
+                className={styles.navLink}
+                onClick={() => console.log("Menu clicked")}
+              >
+                Menu
+              </li>
+            </ul>
+            <button
+              className={`${styles.loginBtn} ${styles.navLink}`}
               onClick={() =>
                 user ? handleLogout() : setLoginModalOpen(!loginModalOpen)
               }
             >
               {user ? "Logout" : "Login"}
-            </li>
-          </ul>
+            </button>
+          </>
         )}
         <button
           className={`${styles.orderBtn} ${
@@ -137,7 +129,7 @@ const NavBar = ({isMobile, loginModalOpen, setLoginModalOpen}) => {
         >
           <ul className={`${styles.navLinks} orange-glow`}>
             <li
-              className={`${styles.navLink} ${styles.loginBtn}`}
+              className={`${styles.navLink}`}
               onClick={() =>
                 user ? handleLogout() : setLoginModalOpen(!loginModalOpen)
               }
