@@ -1,8 +1,11 @@
 // components/LoginModal.js
-import React, {useEffect, useRef} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import Login from "./Login";
+import Register from "./Register";
 
 const LoginModal = ({loginModalOpen, setLoginModalOpen}) => {
+  const [isRegistering, setIsRegistering] = useState(false);
+
   const modalRef = useRef();
 
   useEffect(() => {
@@ -38,8 +41,11 @@ const LoginModal = ({loginModalOpen, setLoginModalOpen}) => {
         >
           ×
         </button>
-        {/* Modal content goes here */}
-        <Login />
+        {isRegistering ? (
+          <Register setIsRegistering={setIsRegistering} />
+        ) : (
+          <Login setIsRegistering={setIsRegistering} />
+        )}
         {/* Add form or other content as needed */}
       </div>
     </div>

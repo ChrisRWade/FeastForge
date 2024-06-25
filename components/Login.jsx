@@ -5,7 +5,7 @@ import styles from "../styles/Login.module.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEnvelope, faLock} from "@fortawesome/free-solid-svg-icons";
 
-const Login = () => {
+const Login = ({setIsRegistering}) => {
   const {login} = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -69,7 +69,8 @@ const Login = () => {
         Not Registered?{" "}
         <button
           className={styles.linkButton}
-          onClick={() => console.log("Create account clicked")}
+          type="button"
+          onClick={() => setIsRegistering(true)}
         >
           Create account
         </button>
